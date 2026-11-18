@@ -1,0 +1,56 @@
+# sawroof project config — read by the sawroof dispatcher from the repo root.
+# Workers can never edit this file (it is always protected).
+
+main_branch  = "main"
+profile      = "none"         # toolchain profile (kit profiles/*.toml: go, node, none); init writes the detected one
+test_cmd     = "sh test.sh"     # run sandboxed by the dispatcher; its result gates every dispatch
+worker_model = "sonnet"         # sonnet | opus | haiku | claude-*; `--model` overrides per task
+max_workers  = 3                # concurrent workers for this repo (global cap: $SAWROOF_MAX_WORKERS, default 4)
+max_retries  = 2                # extra worker attempts after failing tests / an invalid result
+
+# Extra permission rules for workers, e.g. "Bash(npm *)", "Bash(cargo test *)".
+extra_allow = []
+
+# Repo-relative files/dirs workers may not edit (sandbox denyWrite + Edit deny + guard).
+# Always protected as well: .git, .claude, .sawroof.toml, .agentkit/
+protected = []
+
+[review]
+force_opus = false   # true: every review uses Opus
+max_lines  = 150     # diffs with more changed lines than this get an Opus review
+max_files  = 5       # ... or more changed files than this
+
+# Integration branch (optional). Absent = every approval merges straight into main_branch.
+# Set: workers branch from it, approvals (and policy merges) go into it, and only
+# `sawroof promote` (a human at a terminal) merges it into main_branch.
+# [integration]
+# branch = "next"
+
+# Merge policy for the integration branch: engine code, evaluated after the reviewer, read from the
+# copy of this file COMMITTED on main_branch. Protected paths, a reviewer REJECT/unavailable, a
+# resolved merge conflict or failing tests always go to the human, whatever the thresholds.
+[auto_merge]
+enabled     = false   # needs [integration]
+max_lines   = 80
+max_files   = 4
+max_retries = 0       # a worker that needed a retry goes to the human
+reviewer    = "any"   # or "opus": only an Opus APPROVE counts
+
+[sandbox]
+backend = "native"   # Seatbelt on macOS, Bubblewrap on Linux. "seatbelt" and "bubblewrap" also work, each only
+                     # on its own OS; "docker" is reserved (see the kit README)
+
+[sandbox_extra]
+# Known sandbox incompatibilities: shown to workers so they don't chase them.
+notes = ""
+# Extra worker-writable paths inside the worktree (repo-relative), e.g. build caches.
+allow_write = []
+# Extra Seatbelt rules for the test sandbox (e.g. a Mach lookup a toolchain needs). Rules that allow writes, network,
+# file* or default are refused: a run writes only its own scratch dir, which the engine creates and removes (I2).
+test_seatbelt = []
+
+# Milestone 36 (D20): the work leaves as a pull request on GitHub; your approve signs off the merge.
+[change_request]
+forge = "github"
+repo = "sawroof/cr-gate-test"
+ci_secrets_checked = true   # no CI and no secrets in this repo
