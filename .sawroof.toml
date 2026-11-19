@@ -48,9 +48,3 @@ allow_write = []
 # Extra Seatbelt rules for the test sandbox (e.g. a Mach lookup a toolchain needs). Rules that allow writes, network,
 # file* or default are refused: a run writes only its own scratch dir, which the engine creates and removes (I2).
 test_seatbelt = []
-
-# Milestone 36 (D20): the work leaves as a pull request on GitHub; your approve signs off the merge.
-[change_request]
-forge = "github"
-repo = "sawroof/cr-gate-test"
-ci_secrets_checked = true   # no CI and no secrets in this repo
