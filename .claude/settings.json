@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyWrite": [
+        "/Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main.lock",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/logs/refs/heads/main",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/packed-refs",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/HEAD",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/HEAD.lock",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/config",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/config.lock",
+        "/Users/timbeaulac/Development/cr-gate-test/.git/hooks",
+        "/Users/timbeaulac/Development/cr-gate-test/.worktrees",
+        "/Users/timbeaulac/Development/cr-gate-test/.sawroof.toml",
+        "/Users/timbeaulac/Development/cr-gate-test/.claude",
+        "/Users/timbeaulac/.local/share/sawroof",
+        "/Users/timbeaulac/.local/share/agentkit"
+      ],
+      "allowWrite": [
+        "/Users/timbeaulac/.local/state/sawroof/broker/-Users-timbeaulac-Development-cr-gate-test"
+      ]
+    },
+    "network": {
+      "allowUnixSockets": [],
+      "allowAllUnixSockets": false
+    }
+  },
+  "permissions": {
+    "deny": [
+      "Edit(/.git/**)",
+      "Write(/.git/**)",
+      "Edit(/.worktrees/**)",
+      "Write(/.worktrees/**)",
+      "Edit(/.sawroof.toml)",
+      "Write(/.sawroof.toml)",
+      "Edit(/.claude/**)",
+      "Write(/.claude/**)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main.lock)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/refs/heads/main.lock)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/logs/refs/heads/main)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/logs/refs/heads/main)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/packed-refs)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/packed-refs)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/HEAD)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/HEAD)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/HEAD.lock)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/HEAD.lock)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/config)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/config)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/config.lock)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/config.lock)",
+      "Edit(//Users/timbeaulac/Development/cr-gate-test/.git/hooks)",
+      "Write(//Users/timbeaulac/Development/cr-gate-test/.git/hooks)",
+      "Edit(//Users/timbeaulac/.local/share/sawroof)",
+      "Write(//Users/timbeaulac/.local/share/sawroof)",
+      "Edit(//Users/timbeaulac/.local/share/sawroof/**)",
+      "Write(//Users/timbeaulac/.local/share/sawroof/**)",
+      "Edit(//Users/timbeaulac/.local/share/agentkit)",
+      "Write(//Users/timbeaulac/.local/share/agentkit)",
+      "Edit(//Users/timbeaulac/.local/share/agentkit/**)",
+      "Write(//Users/timbeaulac/.local/share/agentkit/**)"
+    ]
+  }
+}
