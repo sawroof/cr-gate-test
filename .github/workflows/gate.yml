@@ -1,0 +1,19 @@
+# Milestone 53's gate (sawroof roadmap 10a step 2, repair after delivery): the required check `gate`.
+# It fails until GATE.txt holds the line `gate: repaired`, so an item's first push fails it and the engine's repair
+# (D22) sends the failure, with this job's log, back to the worker.
+name: gate
+on: pull_request
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh test.sh
+      - name: GATE.txt holds the line
+        run: |
+          if ! grep -qx 'gate: repaired' GATE.txt 2>/dev/null; then
+            echo "FAIL: GATE.txt must hold the line 'gate: repaired' (add the file or the line)"
+            exit 1
+          fi
