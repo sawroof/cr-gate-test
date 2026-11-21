@@ -6,4 +6,6 @@ set -e
 [ "$(sh greet.sh --shout)" = "HELLO, WORLD" ]
 [ "$(sh bye.sh)" = "bye, world" ]
 [ "$(sh bye.sh ada)" = "bye, ada" ]
+[ "$(sh bye.sh --shout ada)" = "BYE, ADA" ]
+[ "$(sh bye.sh --shout)" = "BYE, WORLD" ]
 echo ok
