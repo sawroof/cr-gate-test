@@ -4,6 +4,7 @@ set -e
 [ "$(sh greet.sh ada)" = "hello, ada" ]
 [ "$(sh greet.sh --shout ada)" = "HELLO, ADA" ]
 [ "$(sh greet.sh --shout)" = "HELLO, WORLD" ]
+[ "$(sh greet.sh --polite ada)" = "good day, ada" ]
 [ "$(sh bye.sh)" = "bye, world" ]
 [ "$(sh bye.sh ada)" = "bye, ada" ]
 [ "$(sh bye.sh --shout ada)" = "BYE, ADA" ]
