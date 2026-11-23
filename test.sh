@@ -7,6 +7,7 @@ set -e
 [ "$(sh greet.sh --polite ada)" = "good day, ada" ]
 [ "$(sh greet.sh --loud ada)" = "hello, ada!" ]
 [ "$(sh greet.sh --ask ada)" = "hello, ada?" ]
+[ "$(sh greet.sh --wave ada)" = "hello, ada o/" ]
 [ "$(sh bye.sh)" = "bye, world" ]
 [ "$(sh bye.sh ada)" = "bye, ada" ]
 [ "$(sh bye.sh --shout ada)" = "BYE, ADA" ]
