@@ -15,6 +15,10 @@ if [ "$1" = "--loud" ]; then
   end="!"
   shift
 fi
+if [ "$1" = "--wave" ]; then
+  end="$end o/"
+  shift
+fi
 msg="$greeting, ${1:-world}$end"
 if [ -n "$shout" ]; then
   msg=$(printf '%s' "$msg" | tr '[:lower:]' '[:upper:]')
