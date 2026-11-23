@@ -15,6 +15,10 @@ if [ "$1" = "--loud" ]; then
   end="!"
   shift
 fi
+if [ "$1" = "--ask" ]; then
+  end="?"
+  shift
+fi
 if [ "$1" = "--wave" ]; then
   end="$end o/"
   shift
