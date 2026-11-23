@@ -30,7 +30,7 @@ max_files  = 5       # ... or more changed files than this
 # copy of this file COMMITTED on main_branch. Protected paths, a reviewer REJECT/unavailable, a
 # resolved merge conflict or failing tests always go to the human, whatever the thresholds.
 [auto_merge]
-enabled     = false   # needs [integration]
+enabled     = true    # needs [integration] or [change_request] forge (milestone 62's gate)
 max_lines   = 80
 max_files   = 4
 max_retries = 0       # a worker that needed a retry goes to the human
