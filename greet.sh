@@ -10,7 +10,12 @@ if [ "$1" = "--polite" ]; then
   greeting="good day"
   shift
 fi
-msg="$greeting, ${1:-world}"
+end=
+if [ "$1" = "--ask" ]; then
+  end="?"
+  shift
+fi
+msg="$greeting, ${1:-world}$end"
 if [ -n "$shout" ]; then
   msg=$(printf '%s' "$msg" | tr '[:lower:]' '[:upper:]')
 fi
