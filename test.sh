@@ -10,4 +10,5 @@ set -e
 [ "$(sh bye.sh ada)" = "bye, ada" ]
 [ "$(sh bye.sh --shout ada)" = "BYE, ADA" ]
 [ "$(sh bye.sh --shout)" = "BYE, WORLD" ]
+[ "$(sh bye.sh --shout --soon ada)" = "SEE YOU SOON, ADA" ]
 echo ok
