@@ -8,6 +8,7 @@ set -e
 [ "$(sh greet.sh --loud ada)" = "hello, ada!" ]
 [ "$(sh greet.sh --ask ada)" = "hello, ada?" ]
 [ "$(sh greet.sh --wave ada)" = "hello, ada o/" ]
+[ "$(sh greet.sh --name ada)" = "hello, ada" ]
 [ "$(sh bye.sh)" = "bye, world" ]
 [ "$(sh bye.sh ada)" = "bye, ada" ]
 [ "$(sh bye.sh --shout ada)" = "BYE, ADA" ]
